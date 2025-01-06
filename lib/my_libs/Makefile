@@ -9,10 +9,12 @@ LIBS_DIR	= my_ctype my_stdlib my_string  my_time
 
 LIBS_HEADERS	= 	my_ctype/my_ctype.h \
 					my_stdlib/my_stdlib.h \
-					my_time/my_time.a	\
+					my_time/my_time.h	\
 					my_string/my_string.h \
 
 GLOBAL_LIB	=	my_libs.a
+
+INCLUDE_DIR =	../../include/
 
 .PHONY: all
 all: $(GLOBAL_LIB)
@@ -35,10 +37,8 @@ $(GLOBAL_LIB):	build
 
 .PHONY: include
 include: $(GLOBAL_LIB)
-	rm -rf include
-	mkdir include
 	@for header in $(LIBS_HEADERS); do \
-		cp $$header include/; \
+		cp $$header $(INCLUDE_DIR); \
 	done
 
 .PHONY: clean
