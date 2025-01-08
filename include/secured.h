@@ -2,13 +2,10 @@
 ** EPITECH PROJECT, 2025
 ** B-CPE-110-TLS-1-1-secured-gael.laguna
 ** File description:
-** main
+** secured functions
 */
 
-#include "hashtable.h"
-#include "lib.h"
+#ifndef SECURED_H
+    #define SECURED_H
 
-int main(int ac, char **av)
-{
-    return 0;
-}
+#endif /* SECURED_H */
