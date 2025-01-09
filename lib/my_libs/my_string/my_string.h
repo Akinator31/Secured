@@ -37,6 +37,8 @@ void *my_memmove(void *dest, const void *src, my_size_t)
 __attribute__((nonnull(1, 2)));
 void *my_memset(void *str, int c, my_size_t n)
 __attribute__((nonnull(1)));
+char **my_str_to_word_array(char *str)
+__attribute__((nonnull(1)));
 char *my_strcat(char *dest, const char *src)
 __attribute__((nonnull(1, 2)));
 char *my_strncat(char *dest, const char *src, my_size_t n)
@@ -47,6 +49,8 @@ int my_strcmp(const char *str1, const char *str2)
 __attribute__((nonnull(1, 2)));
 int my_strncmp(const char *str1, const char *str2, my_size_t n)
 __attribute__((nonnull(1, 2)));
+my_size_t my_strcnb(char *str, int c)
+__attribute__((nonnull(1)));
 int my_strcoll(const char *str1, const char *str2)
 __attribute__((nonnull(1, 2)));
 char *my_strcpy(char *dest, const char *src)
@@ -55,8 +59,12 @@ char *my_strncpy(char *dest, const char *src, my_size_t n)
 __attribute__((nonnull(1, 2)));
 my_size_t my_strcspn(const char *str1, const char *str2)
 __attribute__((nonnull(1, 2)));
+char *my_strdup(const char *str)
+__attribute((nonnull(1)));
 char *my_strerror(int errnum);
 my_size_t my_strlen(const char *str)
+__attribute__((nonnull(1)));
+char *my_strrev(char *str)
 __attribute__((nonnull(1)));
 char *my_strpbrk(const char *str1, const char *str2)
 __attribute__((nonnull(1, 2)));

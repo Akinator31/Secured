@@ -9,7 +9,7 @@
     #define MY_STDLIB_PRIVATE_H_
 
     #define _MAX_ATEXIT_FUNCS 32
-
+    #define BASE_TABLE "zyxwvutsrqponmlkjihgfedcba9876543210"
 int run_atexit(void);
 
 #endif /* MY_STDLIB_PRIVATE_H_ */

@@ -5,11 +5,10 @@
 ## Makefile to make files
 ##
 
-LIBS_DIR	= my_ctype my_stdlib my_string  my_time
+LIBS_DIR	= my_ctype my_stdlib my_string
 
 LIBS_HEADERS	= 	my_ctype/my_ctype.h \
 					my_stdlib/my_stdlib.h \
-					my_time/my_time.h	\
 					my_string/my_string.h \
 
 GLOBAL_LIB	=	my_libs.a

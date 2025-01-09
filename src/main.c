@@ -5,6 +5,8 @@
 ** main
 */
 
+#include <stddef.h>
+#include "my_stdlib.h"
 #include "hashtable.h"
 #include "lib.h"
 

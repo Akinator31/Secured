@@ -7,14 +7,15 @@
 
 #include "my_stdlib.h"
 #include "../my_string/my_string.h"
+#include <stdlib.h>
 
 // This just copies memory into a larger (or smaller) block
 // This is *not* what realloc does
 void *my_realloc(void *ptr, my_size_t size)
 {
-    void *new_ptr = my_malloc(size);
+    void *new_ptr = malloc(size);
 
     my_memcpy(new_ptr, ptr, size);
-    my_free(ptr);
+    free(ptr);
     return new_ptr;
 }

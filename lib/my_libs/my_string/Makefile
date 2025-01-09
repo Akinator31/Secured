@@ -11,15 +11,18 @@ SRC		=	my_memchr.c	\
 			my_memcpy.c	\
 			my_memmove.c	\
 			my_memset.c	\
+			my_str_to_word_array.c	\
 			my_strcat.c	\
 			my_strncat.c	\
 			my_strcmp.c	\
+			my_strcnb.c	\
 			my_strncmp.c	\
 			my_strcpy.c	\
 			my_strncpy.c	\
 			my_strlen.c	\
 			my_strspn.c	\
 			my_strcspn.c	\
+			my_strdup.c	\
 			my_strchr.c	\
 			my_strrchr.c	\
 			my_strstr.c	\
