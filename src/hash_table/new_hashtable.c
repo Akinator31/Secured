@@ -10,5 +10,13 @@
 
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {
-    return NULL;
+    hashtable_t *hashtable = (hashtable_t *)malloc(sizeof(hashtable_t));
+
+    hashtable->size = len;
+    hashtable->hash_function = hash;
+    hashtable->hashtable =
+        (linked_list_t **)malloc(sizeof(linked_list_t *) * (len + 1));
+    for (int i = 0; i <= len; i++)
+        hashtable->hashtable[i] = NULL;
+    return hashtable;
 }

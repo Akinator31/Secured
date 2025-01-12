@@ -157,7 +157,7 @@ char *my_hash(const char *key)
 //         "over my hash table. This is quite annoying");
 //     for (int i = 0; i < 8; i++) {
 //         my_memrcpy(&tmp, &a[i * 4], 4);
-//         printf("%x", tmp);
+//         my_printf("%x", tmp);
 //     }
 //     my_free(a);
 // }

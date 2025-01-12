@@ -7,15 +7,23 @@
 
 #ifndef HASHTABLE_H
     #define HASHTABLE_H
+    #include "my_list.h"
+
+typedef struct hashed_data_s {
+    int key;
+    char *value;
+} hashed_data_t;
 
 typedef struct hashtable_s {
-    // Your code here
+    int size;
+    linked_list_t **hashtable;
+    int (*hash_function)(char *, int);
 } hashtable_t;
 
 // Hash function
 int hash(char *key, int len);
 
-// Create & destro table
+// Create & destroy table
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len);
 void delete_hashtable(hashtable_t *ht);
 

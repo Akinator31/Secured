@@ -5,9 +5,39 @@
 ** hashtable
 */
 
+#include <stdbool.h>
+#include <unistd.h>
+#include "my_stdlib.h"
 #include "hashtable.h"
+
+bool try_deleting_field(linked_list_t *hashdata, int key)
+{
+    linked_list_t *temp = hashdata;
+    hashed_data_t *temp_data = MY_NULL;
+
+    if (key < 0)
+        key *= -1;
+    while (temp != MY_NULL) {
+        temp_data = ((hashed_data_t *)(temp->data));
+        if (temp_data->key == key) {
+            my_free(temp_data);
+            temp = delete_node(&hashdata, temp);
+            return true;
+        }
+        temp = temp->next;
+    }
+    return false;
+}
 
 int ht_delete(hashtable_t *ht, char *key)
 {
-    return 0;
+    linked_list_t **hashtable = ht->hashtable;
+    int hashkey = hash(key, ht->size);
+
+    for (int i = 0; i <= ht->size; i++) {
+        if (try_deleting_field(hashtable[i], hashkey))
+            return 0;
+    }
+    write(2, "Key not found !\n", 17);
+    return 84;
 }

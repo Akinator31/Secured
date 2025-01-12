@@ -49,7 +49,7 @@ build_lib:
 	@mv lib/my_libs/my_libs.a .
 
 clean:
-	$(shell find . -type f -name ".o" -delete)
+	$(shell find . -type f -name "*.o" -delete)
 
 fclean: clean
 	rm -rf build
