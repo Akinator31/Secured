@@ -24,10 +24,10 @@ OBJ		=	$(SRC:.c=.o)
 
 NAME	=	my_ctype.a
 
-CFLAGS 	+=	-Wall -Wextra -Werror -Wconversion -Wformat -Wshadow -Walloc-zero
-CFLAGS	+=	-Wdouble-promotion -Wduplicated-branches -Wundef -Wunused-macros
-CFLAGS	+=	-Wduplicated-cond -Wformat=2 -Wformat-signedness -Winit-self
-CFLAGS	+=	-Wlogical-op -Wmissing-declarations -Wmissing-prototypes -Wpadded
+CFLAGS += -Weverything -std=c2x -Wno-missing-variable-declarations
+CFLAGS += -Wno-unsafe-buffer-usage -Wno-pre-c23-compat -Wno-vla
+
+CC = clang
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@

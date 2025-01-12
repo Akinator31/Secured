@@ -7,6 +7,7 @@
 
 #include "my_string.h"
 
+// optimize by copying larger chunks when possible + align
 void *my_memcpy(void *dest, const void *src, my_size_t n)
 {
     for (my_size_t i = 0; i < n; i++)

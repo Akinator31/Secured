@@ -33,9 +33,14 @@ int my_memcmp(const void *str1, const void *str2, my_size_t n)
 __attribute__((nonnull(1, 2)));
 void *my_memcpy(void *dest, const void *src, my_size_t)
 __attribute__((nonnull(1, 2)));
+void *my_memrcpy(void *dest, const void *src, my_size_t n)
+__attribute__((nonnull(1, 2)));
 void *my_memmove(void *dest, const void *src, my_size_t)
 __attribute__((nonnull(1, 2)));
 void *my_memset(void *str, int c, my_size_t n)
+__attribute__((nonnull(1)));
+char *my_c_to_bin(char c);
+char *my_str_to_bin(const char *str, my_size_t len)
 __attribute__((nonnull(1)));
 char **my_str_to_word_array(char *str)
 __attribute__((nonnull(1)));
@@ -60,7 +65,7 @@ __attribute__((nonnull(1, 2)));
 my_size_t my_strcspn(const char *str1, const char *str2)
 __attribute__((nonnull(1, 2)));
 char *my_strdup(const char *str)
-__attribute((nonnull(1)));
+__attribute__((nonnull(1)));
 char *my_strerror(int errnum);
 my_size_t my_strlen(const char *str)
 __attribute__((nonnull(1)));

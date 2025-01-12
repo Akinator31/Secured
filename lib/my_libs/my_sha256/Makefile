@@ -5,27 +5,12 @@
 ## Makefile to make files
 ##
 
-SRC		=	my_abs.c	\
-			my_atof.c	\
-			my_atoi.c	\
-			my_atol.c	\
-			my_ltoa.c	\
-			my_itoa.c	\
-			my_bytes_rev.c	\
-			my_calloc.c	\
-			my_div.c	\
-			my_free.c	\
-			my_labs.c	\
-			my_ldiv.c	\
-			my_malloc.c	\
-			my_realloc.c	\
-			my_reallocarray.c	\
-			my_strtod.c	\
-			my_strtol.c	\
+SRC		=	my_hash.c	\
+			sigmas.c	\
 
 OBJ		=	$(SRC:.c=.o)
 
-NAME    =   my_stdlib.a
+NAME    =   my_sha256.a
 
 CFLAGS += -Weverything -std=c2x -Wno-missing-variable-declarations
 CFLAGS += -Wno-unsafe-buffer-usage -Wno-pre-c23-compat -Wno-vla -Wno-cast-qual

@@ -8,7 +8,6 @@
 ** (non-standard)
 */
 
-#include <stdlib.h>
 #include "my_string.h"
 #include "../my_stdlib/my_stdlib.h"
 
@@ -19,7 +18,7 @@ const char *delimiters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 // Modifies the original string
 char **my_str_to_word_array(char *str)
 {
-    char **array = malloc(sizeof(char *));
+    char **array = my_malloc(sizeof(char *));
     char *words = my_strtok(str, delimiters);
     my_size_t i = 0;
 

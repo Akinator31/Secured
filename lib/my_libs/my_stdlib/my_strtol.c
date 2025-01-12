@@ -6,8 +6,8 @@
 */
 
 #include "../my_ctype/my_ctype.h"
-#include "../my_string/my_string.h"
 #include "../my_stdlib/my_stdlib.h"
+#include "../my_string/my_string.h"
 #include "private.h"
 
 long my_strtol(const char *str, char **endptr, int base)
@@ -23,7 +23,7 @@ long my_strtol(const char *str, char **endptr, int base)
         sign = -1;
         index++;
     }
-    while (str[index] != '\0' && my_strchr(&BASE_TABLE[36 - base],
+    while (str[index] != '\0' && my_strchr(&BASE_TABLE_R[36 - base],
         (char)my_tolower(str[index])) != MY_NULL) {
         result *= 10.0 / 10 * base;
         ascii_diff = my_isalpha(str[index]) ? 'Z' - 3 : '0';

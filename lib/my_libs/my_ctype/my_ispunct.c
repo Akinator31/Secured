@@ -8,7 +8,7 @@
 #include "my_ctype.h"
 #include "private.h"
 
-int my_isxdigit(char c)
+int my_ispunct(char c)
 {
     if (c >= OPERANDS_MIN && c <= OPERANDS_MAX)
         return 1;

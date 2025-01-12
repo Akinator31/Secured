@@ -2,7 +2,8 @@
 ** EPITECH PROJECT, 2025
 ** my_stdlib
 ** File description:
-** long to str (non-standard)
+** long to str
+** (non-standard)
 */
 
 #include "my_stdlib.h"

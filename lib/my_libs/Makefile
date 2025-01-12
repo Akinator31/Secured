@@ -5,11 +5,12 @@
 ## Makefile to make files
 ##
 
-LIBS_DIR	= my_ctype my_stdlib my_string
+LIBS_DIR	= my_ctype my_stdlib my_string my_sha256
 
 LIBS_HEADERS	= 	my_ctype/my_ctype.h \
 					my_stdlib/my_stdlib.h \
 					my_string/my_string.h \
+					my_sha256/my_sha256.h	\
 
 GLOBAL_LIB	=	my_libs.a
 
@@ -21,7 +22,7 @@ all: $(GLOBAL_LIB)
 .PHONY: build
 build:
 	@for dir in $(LIBS_DIR); do \
-	    echo "Building $$dir"; \
+	    echo "\033[31mBuilding $$dir \033[0m"; \
 		$(MAKE) -s -C $$dir build; \
 	done
 

@@ -6,12 +6,12 @@
 */
 
 #include "my_string.h"
-#include <stdlib.h>
+#include "../my_stdlib/my_stdlib.h"
 
 char *my_strdup(const char *str)
 {
     my_size_t len = my_strlen(str);
-    char *duplicata = malloc(len);
+    char *duplicata = my_malloc(len);
 
     my_memcpy(duplicata, str, len);
     return duplicata;

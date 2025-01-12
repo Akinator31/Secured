@@ -9,15 +9,16 @@
 #include "../my_string/my_string.h"
 #include "my_stdlib.h"
 
-const char digits[11] = "0123456789\0";
+static const char digits[11] = "0123456789\0";
 
 double my_strtod(const char *str, char **endptr)
 {
     int sign = 1;
     int index = 0;
-    long double value = 0;
-    double tmp_float = (double)my_strtol(&my_strpbrk(str, ".")[1], endptr, 10);
-    double floating_size = 10;
+    double value = 0;
+    long tmp_float_l = my_strtol(&my_strpbrk(str, ".")[1], endptr, 10);
+    double tmp_float = (double)tmp_float_l;
+    double floating_size = 10.0;
 
     while (str[index] != '\0' && my_isspace(str[index]))
         index++;
@@ -30,7 +31,6 @@ double my_strtod(const char *str, char **endptr)
         index++;
     }
     while (tmp_float / floating_size > 1)
-        floating_size *= 10;
-    value += tmp_float / floating_size;
-    return (double)value * sign;
+        floating_size *= 10.0;
+    return (value + (tmp_float / floating_size)) * sign;
 }
