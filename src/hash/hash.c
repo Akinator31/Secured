@@ -5,11 +5,9 @@
 ** hash
 */
 
-#include <stddef.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include "hashtable.h"
-#include "my_stdlib.h"
 #include "my_string.h"
 #include "my_sha256.h"
 
