@@ -39,7 +39,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     index = hashed_key % ht->size;
     if ((index < ht->size) && !hashkey_already_exist(
             ht->hashtable[index], hashed_key, value)) {
-        data = (hashed_data_t *)malloc(sizeof(hashed_data_t));
+        data = (hashed_data_t *)my_malloc(sizeof(hashed_data_t));
         data->key = hashed_key;
         data->value = value;
         ht->hashtable[index] = push_front_list(ht->hashtable[index], data);

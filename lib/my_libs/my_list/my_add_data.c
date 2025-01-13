@@ -37,7 +37,7 @@ linked_list_t *push_back_list(linked_list_t *list, void *data)
 {
     linked_list_t *new_element = malloc(sizeof(linked_list_t));
     linked_list_t *temp = list;
-    linked_list_t *prev;
+    linked_list_t *prev = NULL;
 
     if (list == NULL) {
         new_element->data = data;

@@ -10,7 +10,7 @@
 #include "hashtable.h"
 #include "my_printf.h"
 
-void print_data(linked_list_t *data_list, int index)
+void print_data(linked_list_t *data_list)
 {
     linked_list_t *temp = data_list;
     hashed_data_t *data_element = MY_NULL;
@@ -24,17 +24,13 @@ void print_data(linked_list_t *data_list, int index)
 
 void ht_dump(hashtable_t *ht)
 {
-    hashed_data_t *hashed_data = MY_NULL;
-
     if (ht == MY_NULL)
         return;
     for (int i = 0; i < ht->size; i++) {
-        hashed_data = ht->hashtable[i];
         if (ht->hashtable[i] != MY_NULL) {
             my_printf("[%d]:\n", i);
-            print_data(ht->hashtable[i], i);
-        } else {
+            print_data(ht->hashtable[i]);
+        } else
             my_printf("[%d]:\n", i);
-        }
     }
 }
