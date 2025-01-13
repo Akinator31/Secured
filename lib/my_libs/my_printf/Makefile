@@ -23,7 +23,7 @@ build: $(OBJ)
 
 $(NAME): $(OBJ)
 	@rm -f $(NAME)
-	ar rc $(NAME) $(OBJ)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
 	$(shell find . -type f -name "*.o" -delete)
