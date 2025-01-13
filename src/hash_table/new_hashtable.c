@@ -10,8 +10,10 @@
 
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {
-    hashtable_t *hashtable = (hashtable_t *)malloc(sizeof(hashtable_t));
+    hashtable_t *hashtable = NULL;
 
+    if (len <= 0)
+        return NULL;
     hashtable->size = len;
     hashtable->hash_function = hash;
     hashtable->hashtable =

@@ -26,6 +26,8 @@ void ht_dump(hashtable_t *ht)
 {
     hashed_data_t *hashed_data = MY_NULL;
 
+    if (ht == MY_NULL)
+        return;
     for (int i = 0; i < ht->size; i++) {
         hashed_data = ht->hashtable[i];
         if (ht->hashtable[i] != MY_NULL) {

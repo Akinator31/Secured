@@ -28,6 +28,8 @@ char *ht_search(hashtable_t *ht, char *key)
     int hashed_key = hash(key, ht->size);
     char *result = MY_NULL;
 
+    if (ht == MY_NULL)
+        return MY_NULL;
     if (hashed_key < 0)
         hashed_key *= -1;
     for (int i = 0; i <= ht->size; i++) {

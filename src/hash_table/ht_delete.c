@@ -31,9 +31,13 @@ bool try_deleting_field(linked_list_t *hashdata, int key)
 
 int ht_delete(hashtable_t *ht, char *key)
 {
-    linked_list_t **hashtable = ht->hashtable;
-    int hashkey = hash(key, ht->size);
+    linked_list_t **hashtable = MY_NULL;
+    int hashkey = 0;
 
+    if (ht == MY_NULL)
+        return 84;
+    hashtable = ht->hashtable;
+    hashkey = hash(key, ht->size);
     for (int i = 0; i <= ht->size; i++) {
         if (try_deleting_field(hashtable[i], hashkey))
             return 0;
