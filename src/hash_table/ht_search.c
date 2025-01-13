@@ -13,7 +13,7 @@ char *launch_query(linked_list_t *hashed_element, int key)
     linked_list_t *temp = hashed_element;
     hashed_data_t *temp_data = MY_NULL;
 
-    while (temp != MY_NULL) {
+    while (temp) {
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == key)
             return temp_data->value;
@@ -28,13 +28,13 @@ char *ht_search(hashtable_t *ht, char *key)
     int hashed_key = hash(key, ht->size);
     char *result = MY_NULL;
 
-    if (ht == MY_NULL)
+    if (!ht)
         return MY_NULL;
     if (hashed_key < 0)
-        hashed_key *= -1;
-    for (int i = 0; i <= ht->size; i++) {
+        hashed_key = -hashed_key;
+    for (int i = 0; i <= ht->size; ++i) {
         result = launch_query(hashtable[i], hashed_key);
-        if (result != MY_NULL)
+        if (result)
             return result;
     }
     return MY_NULL;

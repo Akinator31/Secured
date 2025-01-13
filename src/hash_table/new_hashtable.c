@@ -19,7 +19,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
         (linked_list_t **)malloc(sizeof(linked_list_t *) * (len + 1));
     hashtable->size = len;
     hashtable->hash_function = hash;
-    for (int i = 0; i <= len; i++)
+    for (int i = 0; i <= len; ++i)
         hashtable->hashtable[i] = NULL;
     return hashtable;
 }

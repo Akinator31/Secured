@@ -14,7 +14,7 @@ bool hashkey_already_exist(linked_list_t *hashtable, int hashkey, char *value)
     linked_list_t *temp = hashtable;
     hashed_data_t *temp_data = MY_NULL;
 
-    while (temp != MY_NULL) {
+    while (temp) {
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == hashkey) {
             temp_data->value = value;
@@ -31,11 +31,11 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     int hashed_key = 0;
     int index = 0;
 
-    if (ht == MY_NULL)
+    if (!ht)
         return 84;
     hashed_key = ht->hash_function(key, ht->size);
     if (hashed_key < 0)
-        hashed_key *= -1;
+        hashed_key = -hashed_key;
     index = hashed_key % ht->size;
     if ((index < ht->size) && !hashkey_already_exist(
             ht->hashtable[index], hashed_key, value)) {

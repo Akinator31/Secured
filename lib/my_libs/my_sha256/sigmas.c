@@ -3,6 +3,7 @@
 ** my_sha256
 ** File description:
 ** Hash words computation functions
+** Comments and functions bitshifts might differ, this is for optimization
 */
 
 #include "../my_stdlib/my_stdlib.h"
@@ -16,10 +17,10 @@
 uint32_t sigma_zero(uint32_t word)
 {
     uint32_t first = ROR_32(word, 7);
-    uint32_t second = ROR_32(word, 18);
+    uint32_t second = ROL_32(word, 14);
     uint32_t third = word >> 3;
 
-    return (first ^ second) ^ third;
+    return first ^ second ^ third;
 }
 
 // Right rotate 17
@@ -28,8 +29,8 @@ uint32_t sigma_zero(uint32_t word)
 // Bitwise sum of the 3
 uint32_t sigma_one(uint32_t word)
 {
-    uint32_t first = ROR_32(word, 17);
-    uint32_t second = ROR_32(word, 19);
+    uint32_t first = ROL_32(word, 15);
+    uint32_t second = ROR_32(first, 2);
     uint32_t third = word >> 10;
 
     return first ^ second ^ third;
@@ -42,8 +43,8 @@ uint32_t sigma_one(uint32_t word)
 uint32_t cap_sigma_zero(uint32_t word)
 {
     uint32_t first = ROR_32(word, 2);
-    uint32_t second = ROR_32(word, 13);
-    uint32_t third = ROR_32(word, 22);
+    uint32_t second = ROR_32(first, 11);
+    uint32_t third = ROL_32(word, 10);
 
     return first ^ second ^ third;
 }
@@ -55,8 +56,8 @@ uint32_t cap_sigma_zero(uint32_t word)
 uint32_t cap_sigma_one(uint32_t word)
 {
     uint32_t first = ROR_32(word, 6);
-    uint32_t second = ROR_32(word, 11);
-    uint32_t third = ROR_32(word, 25);
+    uint32_t second = ROR_32(first, 5);
+    uint32_t third = ROL_32(word, 7);
 
     return first ^ second ^ third;
 }

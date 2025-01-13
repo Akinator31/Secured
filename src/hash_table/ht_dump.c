@@ -15,7 +15,7 @@ void print_data(linked_list_t *data_list)
     linked_list_t *temp = data_list;
     hashed_data_t *data_element = MY_NULL;
 
-    while (temp != MY_NULL) {
+    while (temp) {
         data_element = ((hashed_data_t *)(temp->data));
         my_printf("> %d - %s\n", data_element->key, data_element->value);
         temp = temp->next;
@@ -24,10 +24,10 @@ void print_data(linked_list_t *data_list)
 
 void ht_dump(hashtable_t *ht)
 {
-    if (ht == MY_NULL)
+    if (!ht)
         return;
-    for (int i = 0; i < ht->size; i++) {
-        if (ht->hashtable[i] != MY_NULL) {
+    for (int i = 0; i < ht->size; ++i) {
+        if (ht->hashtable[i]) {
             my_printf("[%d]:\n", i);
             print_data(ht->hashtable[i]);
         } else

@@ -25,9 +25,9 @@ char *random_string(int seed)
 int main(int argc, char **argv)
 {
     hashtable_t *ht = new_hashtable(hash, 5120);
-    char *random_key = NULL;
+    char *random_key = "a";
 
-    for (int i = 1; i < 100000; i++) {
+    for (int i = 1; i < 100000; ++i) {
         random_key = random_string(i);
         ht_insert(ht, random_key, "abc");
         free(random_key);
