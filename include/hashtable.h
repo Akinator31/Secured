@@ -7,6 +7,7 @@
 
 #ifndef HASHTABLE_H
     #define HASHTABLE_H
+    #include <stdbool.h>
     #include "my_list.h"
 
 typedef struct hashed_data_s {
@@ -32,5 +33,6 @@ int ht_insert(hashtable_t *ht, char *key, char *value);
 int ht_delete(hashtable_t *ht, char *key);
 char *ht_search(hashtable_t *ht, char *key);
 void ht_dump(hashtable_t *ht);
+bool is_hashtable_empty(hashtable_t *ht);
 
 #endif /* HASHTABLE_H */

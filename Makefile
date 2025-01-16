@@ -59,7 +59,8 @@ $(DEBUG_NAME): build_lib $(OBJ_DEBUG)
 tests_run: build_lib $(OBJ_TEST)
 	@rm -f $(LIB_NAME)
 	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ_TEST)
-	gcc tests/criterion_tests.c -o $(TESTING_NAME) $(LIB_NAME) $(TESTING_FLAGS)
+	gcc tests/criterion_tests.c tests/ht_insert_lines.c \
+		-o $(TESTING_NAME) $(LIB_NAME) $(TESTING_FLAGS)
 	./$(TESTING_NAME)
 
 show_test: tests_run
