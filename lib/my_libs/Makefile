@@ -5,18 +5,13 @@
 ## Makefile to make files
 ##
 
-LIBS_DIR	= my_ctype my_stdlib my_string my_sha256 my_list my_printf
+LIBS_DIR = my_ctype my_stdlib my_string my_sha256 my_list my_printf
 
-LIBS_HEADERS	= 	my_ctype/my_ctype.h \
-					my_stdlib/my_stdlib.h \
-					my_string/my_string.h \
-					my_sha256/my_sha256.h	\
-					my_list/my_list.h \
-					my_printf/my_printf.h \
+LIBS_HEADERS = $(shell find . -name "*.h")
 
-GLOBAL_LIB	=	my_libs.a
+GLOBAL_LIB = my_libs.a
 
-INCLUDE_DIR =	../../include/
+INCLUDE_DIR = ../../include/
 
 .PHONY: all
 all: $(GLOBAL_LIB)

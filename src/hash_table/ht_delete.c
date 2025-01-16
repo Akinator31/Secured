@@ -10,7 +10,8 @@
 #include "my_stdlib.h"
 #include "hashtable.h"
 
-linked_list_t *try_deleting_field(linked_list_t *hashdata, int key)
+static linked_list_t *try_deleting_field(const linked_list_t *hashdata,
+    int key)
 {
     linked_list_t *temp = hashdata;
     hashed_data_t *temp_data = MY_NULL;

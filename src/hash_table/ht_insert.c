@@ -9,7 +9,8 @@
 #include "my_stdlib.h"
 #include "hashtable.h"
 
-bool hashkey_already_exist(linked_list_t *hashtable, int hashkey, char *value)
+static bool hashkey_already_exist(const linked_list_t *hashtable,
+    const int hashkey, const char *value)
 {
     linked_list_t *temp = hashtable;
     hashed_data_t *temp_data = MY_NULL;

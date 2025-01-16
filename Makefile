@@ -5,7 +5,9 @@
 ## Makefile for my_printf project
 ##
 
-SRC = $(shell find . -type f -name "*.c" ! -name "main.c")
+SRC = $(shell find . -type f -name "*.c" ! -name "main.c" ! -path "./tests/*")
+
+SRC_TEST = $(shell find . -type f -name "*.c" ! -name "main.c")
 
 INCLUDE_H := $(shell find include -type d)
 
@@ -21,7 +23,7 @@ CFLAGS += 	-Wextra -Wall -lm $(INCLUDE)
 
 DEBUG_FLAGS = -fsanitize=address -g3 -Wextra -Wall -lm $(INCLUDE)
 
-TESTING_FLAGS = -lcriterion -lm $(INCLUDE)
+TESTING_FLAGS = --coverage -lgcov -lcriterion -lm $(INCLUDE)
 
 LIB_NAME = libhashtable.a
 
@@ -54,10 +56,16 @@ $(DEBUG_NAME): build_lib $(OBJ_DEBUG)
 	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ_DEBUG)
 	gcc src/main.c -o $(DEBUG_NAME) $(LIB_NAME) $(DEBUG_FLAGS)
 
-$(TESTING_NAME): build_lib $(OBJ_TEST)
+tests_run: build_lib $(OBJ_TEST)
 	@rm -f $(LIB_NAME)
 	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ_TEST)
 	gcc tests/criterion_tests.c -o $(TESTING_NAME) $(LIB_NAME) $(TESTING_FLAGS)
+	./$(TESTING_NAME)
+
+show_test: tests_run
+	mkdir -p coverage
+	gcovr -r . --html --html-details -o coverage/index.html
+	firefox coverage/index.html
 
 build_lib:
 	$(MAKE) -s -C lib/my_libs/
@@ -75,5 +83,8 @@ fclean: clean
 	rm -f $(TESTING_NAME)
 	rm -f coding-style-reports.log
 	rm -f $(MY_LIB)
+	rm -rf coverage
+	$(shell find . -name "*.gcda" -delete)
+	$(shell find . -name "*.gcno" -delete)
 
 re: fclean all
