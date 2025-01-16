@@ -10,7 +10,6 @@
     #include <dirent.h>
     #include <sys/types.h>
     #include <fcntl.h>
-    #include "my_list.h"
 
 typedef struct linked_list_s linked_list_t;
 
