@@ -10,7 +10,7 @@
 #include "my_stdlib.h"
 #include "hashtable.h"
 
-bool try_deleting_field(linked_list_t *hashdata, int key)
+linked_list_t *try_deleting_field(linked_list_t *hashdata, int key)
 {
     linked_list_t *temp = hashdata;
     hashed_data_t *temp_data = MY_NULL;
@@ -21,12 +21,12 @@ bool try_deleting_field(linked_list_t *hashdata, int key)
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == key) {
             my_free(temp_data);
-            temp = delete_node(&hashdata, temp);
-            return true;
+            hashdata = delete_node(&hashdata, temp);
+            return hashdata;
         }
         temp = temp->next;
     }
-    return false;
+    return hashdata;
 }
 
 int ht_delete(hashtable_t *ht, char *key)
@@ -34,14 +34,12 @@ int ht_delete(hashtable_t *ht, char *key)
     linked_list_t **hashtable = MY_NULL;
     int hashkey = 0;
 
-    if (!ht)
+    if (!ht && !ht->hashtable)
         return 84;
     hashtable = ht->hashtable;
     hashkey = hash(key, ht->size);
     for (int i = 0; i <= ht->size; ++i) {
-        if (try_deleting_field(hashtable[i], hashkey))
-            return 0;
+        hashtable[i] = try_deleting_field(hashtable[i], hashkey);
     }
-    write(2, "Key not found !\n", 17);
     return 84;
 }

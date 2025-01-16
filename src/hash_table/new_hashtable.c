@@ -14,7 +14,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 
     if (len <= 0)
         return NULL;
-    hashtable = (hashtable_t *)malloc(sizeof(hashtable_t));
+    hashtable = malloc(sizeof(hashtable_t));
     hashtable->hashtable =
         (linked_list_t **)malloc(sizeof(linked_list_t *) * (len + 1));
     hashtable->size = len;

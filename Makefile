@@ -13,23 +13,33 @@ INCLUDE = $(INCLUDE_H:%=-I%)
 
 OBJ = 	$(SRC:%.c=build/%.o)
 
-OBJ_TESTING = $(SRC:%.c=build-testing/%.o)
+OBJ_DEBUG = $(SRC:%.c=build-debug/%.o)
+
+OBJ_TEST = $(SRC:%.c=build-test/%.o)
 
 CFLAGS += 	-Wextra -Wall -lm $(INCLUDE)
 
-TESTING_FLAGS = 	-fsanitize=address -g3	-Wextra -Wall -lm $(INCLUDE)
+DEBUG_FLAGS = -fsanitize=address -g3 -Wextra -Wall -lm $(INCLUDE)
+
+TESTING_FLAGS = -lcriterion -lm $(INCLUDE)
 
 LIB_NAME = libhashtable.a
 
 MY_LIB = my_libs.a
 
-TESTING_NAME = secured
+DEBUG_NAME = debug
+
+TESTING_NAME = test
 
 build/%.o: %.c
 		@mkdir -p $(dir $@)
 		@gcc $(CFLAGS) -c $< -o $@
 
-build-testing/%.o: %.c
+build-debug/%.o: %.c
+		@mkdir -p $(dir $@)
+		@gcc $(DEBUG_FLAGS) -c $< -o $@
+
+build-test/%.o: %.c
 		@mkdir -p $(dir $@)
 		@gcc $(TESTING_FLAGS) -c $< -o $@
 
@@ -39,10 +49,15 @@ $(LIB_NAME): build_lib $(OBJ)
 	@rm -f $(LIB_NAME)
 	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ)
 
-$(TESTING_NAME): build_lib $(OBJ_TESTING)
+$(DEBUG_NAME): build_lib $(OBJ_DEBUG)
 	@rm -f $(LIB_NAME)
-	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ_TESTING)
-	gcc src/main.c -o $(TESTING_NAME) $(LIB_NAME) $(TESTING_FLAGS)
+	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ_DEBUG)
+	gcc src/main.c -o $(DEBUG_NAME) $(LIB_NAME) $(DEBUG_FLAGS)
+
+$(TESTING_NAME): build_lib $(OBJ_TEST)
+	@rm -f $(LIB_NAME)
+	@ar rc $(LIB_NAME) $(MY_LIB) $(OBJ_TEST)
+	gcc tests/criterion_tests.c -o $(TESTING_NAME) $(LIB_NAME) $(TESTING_FLAGS)
 
 build_lib:
 	$(MAKE) -s -C lib/my_libs/
@@ -53,8 +68,10 @@ clean:
 
 fclean: clean
 	rm -rf build
-	rm -rf build-testing
+	rm -rf build-debug
+	rm -rf build-test
 	rm -f $(LIB_NAME)
+	rm -f $(DEBUG_NAME)
 	rm -f $(TESTING_NAME)
 	rm -f coding-style-reports.log
 	rm -f $(MY_LIB)
