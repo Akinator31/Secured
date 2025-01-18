@@ -12,10 +12,7 @@ OBJ		=	$(SRC:.c=.o)
 
 NAME    =   my_sha256.a
 
-CFLAGS += -Weverything -std=c2x -Wno-missing-variable-declarations
-CFLAGS += -Wno-unsafe-buffer-usage -Wno-pre-c23-compat -Wno-vla -Wno-cast-qual
-
-CC = clang
+CFLAGS += -Wall -Wextra
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@

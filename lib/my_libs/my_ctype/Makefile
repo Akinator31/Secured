@@ -24,10 +24,7 @@ OBJ		=	$(SRC:.c=.o)
 
 NAME	=	my_ctype.a
 
-CFLAGS += -Weverything -std=c2x -Wno-missing-variable-declarations
-CFLAGS += -Wno-unsafe-buffer-usage -Wno-pre-c23-compat -Wno-vla
-
-CC = clang
+CFLAGS += -Wall -Wextra
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@

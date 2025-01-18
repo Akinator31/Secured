@@ -64,25 +64,9 @@ void *my_malloc(my_size_t size);
 void *my_realloc(void *ptr, my_size_t size);
 void *my_reallocarray(void *ptr, my_size_t nmemb, my_size_t size);
 void *my_bytes_rev(void *mem, my_size_t bytes);
-[[noreturn]] void my_abort(void);
-int my_atexit(void (*func)(void));
-[[noreturn]] void my_exit(int status);
-char *my_getenv(const char *name);
-int my_system(const char *string);
-//void *my_b_search(const void *key, const void *base, my_size_t nitems,
-//    my_size_t size, int (*compar)(const void *, const void *));
-void my_qsort(void *base, my_size_t nitems, my_size_t size,
-    int (*compar)(const void *, const void *));
 int my_abs(int x);
 my_div_t my_div(int numer, int denom);
 long int my_labs(long int x);
 my_ldiv_t my_ldiv(long int number, long int denom);
-int my_rand(void);
-void my_srand(unsigned int seed);
-int my_mblen(const char *str, my_size_t n);
-my_size_t my_mbstowcs(my_wchar_t *pwcs, const char *str, my_size_t n);
-int my_mbtowc(my_wchar_t *pwc, const char *s, my_size_t n);
-my_size_t my_wcstombs(char *s, const my_wchar_t *pwcs, my_size_t n);
-int my_wctomb(char *str, my_wchar_t wchar);
 
 #endif /* MY_STDLIB_H_ */
