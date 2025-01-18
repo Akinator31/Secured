@@ -10,7 +10,7 @@
 #include "hashtable.h"
 #include "my_printf.h"
 
-static void print_data(const linked_list_t *data_list)
+static void print_data(linked_list_t *data_list)
 {
     linked_list_t *temp = data_list;
     hashed_data_t *data_element = MY_NULL;

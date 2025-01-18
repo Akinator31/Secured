@@ -8,7 +8,7 @@
 #include "my_stdlib.h"
 #include "hashtable.h"
 
-static char *launch_query(const linked_list_t *hashed_element, const int key)
+static char *launch_query(linked_list_t *hashed_element, const int key)
 {
     linked_list_t *temp = hashed_element;
     hashed_data_t *temp_data = MY_NULL;
