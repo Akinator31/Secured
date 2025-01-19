@@ -35,7 +35,7 @@ int ht_delete(hashtable_t *ht, char *key)
     linked_list_t **hashtable = MY_NULL;
     int hashkey = 0;
 
-    if (!ht && !ht->hashtable)
+    if (!ht)
         return 84;
     hashtable = ht->hashtable;
     hashkey = hash(key, ht->size);
