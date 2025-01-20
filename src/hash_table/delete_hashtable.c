@@ -12,7 +12,7 @@ void delete_hashtable(hashtable_t *ht)
 {
     if (ht == NULL)
         return;
-    for (int i = 0; i <= ht->size; ++i)
+    for (int i = 0; i < ht->size; ++i)
         ht->hashtable[i] = clear_list_and_data(ht->hashtable[i], &free);
     free(ht->hashtable);
     free(ht);

@@ -22,8 +22,7 @@ static linked_list_t *try_deleting_field(linked_list_t *hashdata,
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == key) {
             my_free(temp_data);
-            hashdata = delete_node(&hashdata, temp);
-            return hashdata;
+            return delete_node(&hashdata, temp);
         }
         temp = temp->next;
     }
@@ -39,7 +38,7 @@ int ht_delete(hashtable_t *ht, char *key)
         return 84;
     hashtable = ht->hashtable;
     hashkey = hash(key, ht->size);
-    for (int i = 0; i <= ht->size; ++i) {
+    for (int i = 0; i < ht->size; ++i) {
         hashtable[i] = try_deleting_field(hashtable[i], hashkey);
     }
     return 84;
