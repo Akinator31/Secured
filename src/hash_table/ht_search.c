@@ -24,12 +24,14 @@ static char *launch_query(linked_list_t *hashed_element, const int key)
 
 char *ht_search(hashtable_t *ht, char *key)
 {
-    linked_list_t **hashtable = ht->hashtable;
-    int hashed_key = hash(key, ht->size);
+    linked_list_t **hashtable = MY_NULL;
+    int hashed_key = 0;
     char *result = MY_NULL;
 
     if (!ht)
         return MY_NULL;
+    hashtable = ht->hashtable;
+    hashed_key = hash(key, ht->size);
     if (hashed_key < 0)
         hashed_key = -hashed_key;
     for (int i = 0; i <= ht->size; ++i) {

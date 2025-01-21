@@ -6,12 +6,16 @@
 */
 
 #include <stdbool.h>
+#include <stdlib.h>
 #include "hashtable.h"
 
 bool is_hashtable_empty(hashtable_t *ht)
 {
-    linked_list_t **hashtable = ht->hashtable;
+    linked_list_t **hashtable = NULL;
 
+    if (!ht)
+        return true;
+    hashtable = ht->hashtable;
     for (int i = 0; i <= ht->size; i++) {
         if (hashtable[i])
             return false;
