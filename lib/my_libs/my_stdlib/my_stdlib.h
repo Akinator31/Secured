@@ -40,14 +40,12 @@ typedef unsigned int my_wchar_t;
     #define ROR_32(x, y) ((x >> y) | (x << (32 - y)))
 
 // Structures
-typedef struct my_div_s
-{
+typedef struct my_div_s {
     int quot;
     int rem;
 } my_div_t;
 
-typedef struct my_ldiv_s
-{
+typedef struct my_ldiv_s {
     long int quot;
     long int rem;
 } my_ldiv_t;

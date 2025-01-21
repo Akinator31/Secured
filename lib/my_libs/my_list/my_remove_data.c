@@ -9,16 +9,14 @@
 #include "my_list.h"
 
 linked_list_t *pop_front_list(linked_list_t *list,
-                              void (*clean_func)(void *data))
+    void (*clean_func)(void *data))
 {
     linked_list_t *temp;
 
-    if (list == NULL)
-    {
+    if (list == NULL) {
         return list;
     }
-    if (list->next == NULL)
-    {
+    if (list->next == NULL) {
         clean_func(list);
         list = NULL;
         return list;
@@ -35,8 +33,7 @@ linked_list_t *delete_node(linked_list_t **list, linked_list_t *element)
 
     if ((list == NULL) || (*list == NULL) || (element == NULL))
         return element;
-    if (*list == element)
-    {
+    if (*list == element) {
         temp = *list;
         *list = (*list)->next;
         free(temp);

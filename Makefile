@@ -23,7 +23,8 @@ CFLAGS += 	-Wextra -Wall -lm $(INCLUDE)
 
 DEBUG_FLAGS = -fsanitize=address -g3 -Wextra -Wall -lm $(INCLUDE)
 
-TESTING_FLAGS = -fsanitize=address -g3 --coverage -lgcov -lcriterion -lm $(INCLUDE)
+TESTING_FLAGS = -fsanitize=address -g3 --coverage -lgcov \
+				-lcriterion -lm $(INCLUDE)
 
 LIB_NAME = libhashtable.a
 

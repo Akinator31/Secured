@@ -7,8 +7,6 @@
 
 SRC		=	my_free.c	\
 			my_malloc.c	\
-			my_realloc.c	\
-			my_reallocarray.c	\
 
 OBJ		=	$(SRC:.c=.o)
 

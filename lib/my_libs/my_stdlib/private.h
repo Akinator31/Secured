@@ -13,7 +13,6 @@
     #define BASE_TABLE "0123456789abcdefghijklmnopqrstuvwxyz"
     #define BASE_TABLE_R "zyxwvutsrqponmlkjihgfedcba9876543210"
 
-
 int run_atexit(void);
 
 #endif /* MY_STDLIB_PRIVATE_H_ */
