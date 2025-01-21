@@ -47,5 +47,5 @@ linked_list_t *delete_node(linked_list_t **list, linked_list_t *element)
         prev = prev->next;
     prev->next = element->next;
     free(element);
-    return prev->next;
+    return *list;
 }
