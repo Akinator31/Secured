@@ -6,38 +6,38 @@
 */
 
 #ifndef MY_NULL_H_
-#define MY_NULL_H_
+    #define MY_NULL_H_
 
-#define MY_NULL ((void *)0)
+    #define MY_NULL ((void *)0)
 
 #endif /* MY_NULL_H_ */
 
 #ifndef MY_SIZE_T_H_
-#define MY_SIZE_T_H_
+    #define MY_SIZE_T_H_
 
 typedef unsigned long my_size_t;
 
 #endif /* MY_SIZE_T_H_ */
 
 #ifndef MY_WCHAR_T_H_
-#define MY_WCHAR_T_H_
+    #define MY_WCHAR_T_H_
 
 typedef unsigned int my_wchar_t;
 
 #endif /* MY_WCHAR_T_H_ */
 
 #ifndef MY_STDLIB_H_
-#define MY_STDLIB_H_
+    #define MY_STDLIB_H_
 
-// Macros
-#define MY_EXIT_FAILURE 84
-#define MY_EXIT_SUCCESS 0
-#define MY_RAND_MAX 2147483647
-#define ABS(x) (x > 0 ? x : -x)
-#define MIN(x, y) (x < y ? x : y)
-#define MAX(x, y) (x > y ? x : y)
-#define ROL_32(x, y) ((x << y) | (x >> (32 - y)))
-#define ROR_32(x, y) ((x >> y) | (x << (32 - y)))
+    // Macros
+    #define MY_EXIT_FAILURE 84
+    #define MY_EXIT_SUCCESS 0
+    #define MY_RAND_MAX 2147483647
+    #define ABS(x) (x > 0 ? x : -x)
+    #define MIN(x, y) (x < y ? x : y)
+    #define MAX(x, y) (x > y ? x : y)
+    #define ROL_32(x, y) ((x << y) | (x >> (32 - y)))
+    #define ROR_32(x, y) ((x >> y) | (x << (32 - y)))
 
 // Structures
 typedef struct my_div_s
@@ -53,20 +53,9 @@ typedef struct my_ldiv_s
 } my_ldiv_t;
 
 // Functions
-double my_atof(const char *str);
-int my_atoi(const char *str);
-long int my_atol(const char *str);
-double my_strtod(const char *str, char **endptr);
-long int my_strtol(const char *str, char **endptr, int base);
-char *my_ltoa(long value, char *str, int base);
-char *my_itoa(int value, char *str, int base);
-void *my_calloc(my_size_t nitems, my_size_t size);
 void my_free(void *ptr);
 void *my_malloc(my_size_t size);
 void *my_realloc(void *ptr, my_size_t size);
 void *my_reallocarray(void *ptr, my_size_t nmemb, my_size_t size);
-void *my_bytes_rev(void *mem, my_size_t bytes);
-int my_abs(int x);
-my_div_t my_div(int numer, int denom);
 
 #endif /* MY_STDLIB_H_ */

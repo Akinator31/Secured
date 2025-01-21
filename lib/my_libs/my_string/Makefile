@@ -5,12 +5,9 @@
 ## Makefile to make files
 ##
 
-SRC		=	my_c_to_bin.c	\
-			my_memccpy.c	\
-			my_memchr.c	\
+SRC		=	my_memccpy.c	\
 			my_memcmp.c	\
 			my_memcpy.c	\
-			my_memmove.c	\
 			my_memrcpy.c	\
 			my_memset.c	\
 			my_strcat.c	\
@@ -24,14 +21,8 @@ SRC		=	my_c_to_bin.c	\
 			my_strncat.c	\
 			my_strncmp.c	\
 			my_strncpy.c	\
-			my_strpbrk.c	\
-			my_strrchr.c	\
 			my_strrev.c	\
-			my_strspn.c	\
-			my_strstr.c	\
-			my_str_to_bin.c	\
 			my_strtok.c	\
-			my_str_to_word_array.c	\
 
 OBJ		=	$(SRC:.c=.o)
 

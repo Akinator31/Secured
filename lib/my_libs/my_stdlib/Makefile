@@ -5,23 +5,10 @@
 ## Makefile to make files
 ##
 
-SRC		=	my_abs.c	\
-			my_atof.c	\
-			my_atoi.c	\
-			my_atol.c	\
-			my_ltoa.c	\
-			my_itoa.c	\
-			my_bytes_rev.c	\
-			my_calloc.c	\
-			my_div.c	\
-			my_free.c	\
-			my_labs.c	\
-			my_ldiv.c	\
+SRC		=	my_free.c	\
 			my_malloc.c	\
 			my_realloc.c	\
 			my_reallocarray.c	\
-			my_strtod.c	\
-			my_strtol.c	\
 
 OBJ		=	$(SRC:.c=.o)
 

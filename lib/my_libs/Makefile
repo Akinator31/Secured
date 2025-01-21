@@ -5,7 +5,7 @@
 ## Makefile to make files
 ##
 
-LIBS_DIR = my_ctype my_stdlib my_string my_sha256 my_list my_printf
+LIBS_DIR = my_stdlib my_string my_sha256 my_list my_printf
 
 LIBS_HEADERS = $(shell find . -name "*.h")
 
