@@ -315,3 +315,12 @@ Test(pop_front_list, test_pop_from_linked_list)
     free(data1);
     list = clear_list(list);
 }
+
+Test(delete_node, test_deleting_node_with_null_linked_list)
+{
+    linked_list_t *list = NULL;
+    linked_list_t **list2 = NULL;
+
+    cr_assert_null(delete_node(&list, NULL));
+    cr_assert_null(delete_node(list2, NULL));
+}
