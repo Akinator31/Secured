@@ -10,6 +10,6 @@
 #ifndef MY_SHA256_H_
     #define MY_SHA256_H_
 
-char *my_hash(const char *key);
+char *my_hash_lol(const char *key);
 
 #endif /* MY_SHA256_H_ */

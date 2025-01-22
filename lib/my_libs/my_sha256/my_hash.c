@@ -127,7 +127,7 @@ static void hash_computation(char hash[64])
 }
 
 // Start by padding the initial key then compute it by blocks of 512
-char *my_hash(const char *key)
+char *my_hash_lol(const char *key)
 {
     char hash[64] = {0};
     char *padded_key = MY_NULL;
@@ -153,7 +153,7 @@ char *my_hash(const char *key)
 //     uint32_t tmp = 0;
 //     char *a = MY_NULL;i
 
-//     a = my_hash("The quick brown fox keeps jumping "
+//     a = my_hash_lol("The quick brown fox keeps jumping "
 //         "over my hash table. This is quite annoying");
 //     for (int i = 0; i < 8; i++) {
 //         my_memrcpy(&tmp, &a[i * 4], 4);

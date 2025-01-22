@@ -17,7 +17,7 @@
 int hash(char *key, int len)
 {
     uint32_t digested_data = 0;
-    char *digested_message = my_hash(key);
+    char *digested_message = my_hash_lol(key);
 
     my_memrcpy(&digested_data, &digested_message[(len % 8) << 2], 4);
     free(digested_message);
