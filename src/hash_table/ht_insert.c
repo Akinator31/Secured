@@ -37,7 +37,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     hashed_key = ht->hash_function(key, ht->size);
     if (hashed_key < 0)
         hashed_key = -hashed_key;
-    index = hashed_key % (ht->size + 1);
+    index = hashed_key % (ht->size);
     if ((index < ht->size) && !hashkey_already_exist(
             ht->hashtable[index], hashed_key, value)) {
         data = (hashed_data_t *)malloc(sizeof(hashed_data_t));
