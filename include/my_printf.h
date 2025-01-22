@@ -13,7 +13,6 @@
 void my_putchar(char c);
 int my_put_nbr(int nb);
 int my_putstr(char const *str);
-char *my_strcpy(char *dest, char const *src);
 int my_printf(const char *format, ...);
 void print_percent(va_list *list, __attribute__((unused)) int *nb_output_char);
 void print_char(va_list *list, __attribute__((unused)) int *nb_output_char);
