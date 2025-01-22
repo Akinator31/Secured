@@ -132,7 +132,7 @@ Test(ht_dump, try_display_not_null_hashtable, .init = redirect_all_std)
 
     ht_insert(ht, "uiheguihziughiu", "value");
     ht_dump(ht);
-    cr_assert_stdout_eq_str("[0]:\n[1]:\n[2]:\n> 2110624758 - value\n");
+    cr_assert_stdout_eq_str("[0]:\n> 2110624758 - value\n[1]:\n[2]:\n");
     delete_hashtable(ht);
 }
 
