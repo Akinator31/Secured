@@ -32,8 +32,6 @@ char *ht_search(hashtable_t *ht, char *key)
         return MY_NULL;
     hashtable = ht->hashtable;
     hashed_key = hash(key, ht->size);
-    if (hashed_key < 0)
-        hashed_key = -hashed_key;
     for (int i = 0; i < ht->size; ++i) {
         result = launch_query_lol(hashtable[i], hashed_key);
         if (result)

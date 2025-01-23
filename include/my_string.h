@@ -83,5 +83,6 @@ char *my_strtok(char *str, const char *delim)
 __attribute__((nonnull(2)));
 my_size_t my_strxfrm(char *dest, const char *src, my_size_t n)
 __attribute__((nonnull(1, 2)));
+char *my_strdup(const char *str);
 
 #endif /* MY_STRING_H_ */

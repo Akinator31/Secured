@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "hashtable.h"
+#include "my_string.h"
 
 static bool hashkey_already_exist(linked_list_t *hashtable,
     const int hashkey, char *value)
@@ -18,7 +19,8 @@ static bool hashkey_already_exist(linked_list_t *hashtable,
     while (temp) {
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == hashkey) {
-            temp_data->value = value;
+            free(temp_data->value);
+            temp_data->value = my_strdup(value);
             return true;
         }
         temp = temp->next;
@@ -35,14 +37,12 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     if (!ht || !key)
         return 84;
     hashed_key = ht->hash_function(key, ht->size);
-    if (hashed_key < 0)
-        hashed_key = -hashed_key;
     index = hashed_key % (ht->size);
     if ((index < ht->size) && !hashkey_already_exist(
             ht->hashtable[index], hashed_key, value)) {
         data = (hashed_data_t *)malloc(sizeof(hashed_data_t));
         data->key = hashed_key;
-        data->value = value;
+        data->value = my_strdup(value);
         ht->hashtable[index] = push_front_list(ht->hashtable[index], data);
     }
     return 0;

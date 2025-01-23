@@ -30,5 +30,6 @@ void *my_memset(void *str, int c, my_size_t n)
 __attribute__((nonnull(1)));
 my_size_t my_strlen(const char *str)
 __attribute__((nonnull(1)));
+char *my_strdup(const char *str);
 
 #endif /* MY_STRING_H_ */

@@ -34,5 +34,6 @@ int ht_delete(hashtable_t *ht, char *key);
 char *ht_search(hashtable_t *ht, char *key);
 void ht_dump(hashtable_t *ht);
 bool is_hashtable_empty(hashtable_t *ht);
+int free_hashdata(void *hashdata);
 
 #endif /* HASHTABLE_H */

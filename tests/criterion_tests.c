@@ -41,8 +41,8 @@ Test(basic, search_one_value)
 
     ht_insert(ht, "key", "value");
     a = ht_search(ht, "key");
-    delete_hashtable(ht);
     cr_assert_str_eq(a, "value");
+    delete_hashtable(ht);
 }
 
 Test(basic, search_non_present_value)
@@ -323,4 +323,32 @@ Test(delete_node, test_deleting_node_with_null_linked_list)
 
     cr_assert_null(delete_node(&list, NULL));
     cr_assert_null(delete_node(list2, NULL));
+}
+
+Test(free_hashdata, test_free_hashdata_struct_with_null)
+{
+    hashed_data_t *data = NULL;
+
+    cr_assert_eq(free_hashdata(data), 84);
+}
+
+Test(ht_insert, test_with_null_key)
+{
+    hashtable_t *ht = new_hashtable(&hash, 5);
+
+    cr_assert_eq(ht_insert(ht, NULL, "Value"), 84);
+    delete_hashtable(ht);
+}
+
+Test(delete_node, )
+{
+    linked_list_t *list = NULL;
+    linked_list_t *temp = NULL;
+    int data1 = 78;
+    int data2 = 89;
+
+    list = push_front_list(list, &data1);
+    temp = list;
+    list = push_front_list(list, &data2);
+    cr_assert_eq(get_linked_list_len(delete_node(&list, list)), 1);
 }

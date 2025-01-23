@@ -9,6 +9,7 @@ SRC		=	my_memcpy.c	\
 			my_memrcpy.c	\
 			my_memset.c	\
 			my_strlen.c	\
+			my_strdup.c \
 
 OBJ		=	$(SRC:.c=.o)
 

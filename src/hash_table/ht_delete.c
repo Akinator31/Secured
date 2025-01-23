@@ -16,12 +16,10 @@ static linked_list_t *try_deleting_field(linked_list_t *hashdata,
     linked_list_t *temp = hashdata;
     hashed_data_t *temp_data = MY_NULL;
 
-    if (key < 0)
-        key = -key;
     while (temp) {
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == key) {
-            my_free(temp_data);
+            free_hashdata(temp_data);
             *founded = 1;
             return delete_node(&hashdata, temp);
         }
