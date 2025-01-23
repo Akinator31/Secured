@@ -10,6 +10,7 @@
 #include "hashtable.h"
 #include "my_string.h"
 #include "my_sha256.h"
+#include "my_stdlib.h"
 
 // The actual hash function is my_hash in lib/my_libs/my_sha256/
 // Using the sha256 secure hash function, we retrieve 256 bits of data,
@@ -21,5 +22,5 @@ int hash(char *key, int len)
 
     my_memrcpy(&digested_data, &digested_message[(len % 8) << 2], 4);
     free(digested_message);
-    return (int)digested_data;
+    return ABS((int)digested_data);
 }
