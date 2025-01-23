@@ -8,7 +8,7 @@
 #include "my_stdlib.h"
 #include "hashtable.h"
 
-static char *launch_query_lol(linked_list_t *hashed_element, const int key)
+static char *launch_query_lol(linked_list_t *hashed_element, int key)
 {
     linked_list_t *temp = hashed_element;
     hashed_data_t *temp_data = MY_NULL;
@@ -28,7 +28,7 @@ char *ht_search(hashtable_t *ht, char *key)
     int hashed_key = 0;
     char *result = MY_NULL;
 
-    if (!ht)
+    if (!ht || !key)
         return MY_NULL;
     hashtable = ht->hashtable;
     hashed_key = hash(key, ht->size);
