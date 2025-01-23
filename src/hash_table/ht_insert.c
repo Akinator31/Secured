@@ -32,7 +32,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     int hashed_key = 0;
     int index = 0;
 
-    if (!ht)
+    if (!ht || !key)
         return 84;
     hashed_key = ht->hash_function(key, ht->size);
     if (hashed_key < 0)

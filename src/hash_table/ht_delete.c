@@ -36,7 +36,7 @@ int ht_delete(hashtable_t *ht, char *key)
     int founded = 0;
     int hashkey = 0;
 
-    if (!ht)
+    if (!ht || !key)
         return 84;
     hashtable = ht->hashtable;
     hashkey = hash(key, ht->size);
