@@ -38,9 +38,7 @@ int ht_delete(hashtable_t *ht, char *key)
         return 84;
     hashtable = ht->hashtable;
     hashkey = hash(key, ht->size);
-    for (int i = 0; i < ht->size; ++i)
-        hashtable[i] = try_deleting_field(hashtable[i], hashkey, &founded);
-    if (!founded)
-        return 84;
-    return 0;
+    hashtable[hashkey % ht->size] = try_deleting_field(
+            hashtable[hashkey % ht->size], hashkey, &founded);
+    return !founded ? 84 : 0;
 }
