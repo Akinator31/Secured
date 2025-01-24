@@ -17,6 +17,8 @@ static linked_list_t *try_deleting_field(linked_list_t *hashdata,
     hashed_data_t *temp_data = MY_NULL;
 
     while (temp) {
+        if (!temp->data)
+            break;
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == key) {
             free_hashdata(temp_data);
