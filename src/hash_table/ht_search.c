@@ -14,6 +14,8 @@ static char *launch_query_lol(linked_list_t *hashed_element, int key)
     hashed_data_t *temp_data = MY_NULL;
 
     while (temp) {
+        if (!temp->data)
+            break;
         temp_data = ((hashed_data_t *)(temp->data));
         if (temp_data->key == key)
             return temp_data->value;
@@ -28,14 +30,10 @@ char *ht_search(hashtable_t *ht, char *key)
     int hashed_key = 0;
     char *result = MY_NULL;
 
-    if (!ht || !key)
+    if (!ht || !key || !ht->hashtable)
         return MY_NULL;
     hashtable = ht->hashtable;
     hashed_key = hash(key, ht->size);
-    for (int i = 0; i < ht->size; ++i) {
-        result = launch_query_lol(hashtable[i], hashed_key);
-        if (result)
-            return result;
-    }
-    return MY_NULL;
+    result = launch_query_lol(hashtable[hashed_key % ht->size], hashed_key);
+    return !result ? MY_NULL : result;
 }
